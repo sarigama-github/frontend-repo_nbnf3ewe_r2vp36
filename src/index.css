@@ -2,45 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Michelle Wigs Theme */
 @layer base {
   :root {
-    --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    --font-geist: 'Geist', system-ui, sans-serif;
-    --font-geist-mono: 'Geist Mono', monospace;
-    --font-mona: 'Mona Sans', system-ui, sans-serif;
-    --font-ibm-plex: 'IBM Plex Sans', system-ui, sans-serif;
-    --font-manrope: 'Manrope', system-ui, sans-serif;
+    --mw-white: #FFFFFF;
+    --mw-champagne: #F6F1ED;
+    --mw-taupe: #D7C7BD;
+    --mw-espresso: #3C2F2F;
+    --mw-gold: #C7A57A;
+    --mw-rosewood: #C7A4A0;
   }
 
-  html {
-    font-family: var(--font-sans);
-    font-feature-settings: "rlig" 1, "calt" 1;
-  }
+  html { scroll-behavior: smooth; }
 
   body {
-    @apply antialiased;
+    @apply antialiased bg-white text-neutral-800;
+    color: var(--mw-espresso);
+    background-color: var(--mw-white);
+    font-family: 'Inter', 'DM Sans', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
   }
+
+  h1,h2,h3,h4 { font-family: 'Playfair Display', serif; font-weight: 400; letter-spacing: 0.2px; }
 }
 
-/* Custom utility classes for shadcn/ui patterns */
-@layer utilities {
-  .animate-in {
-    animation-name: animateIn;
-    animation-duration: 350ms;
-    --tw-enter-opacity: initial;
-    --tw-enter-scale: initial;
-    --tw-enter-rotate: initial;
-    --tw-enter-translate-x: initial;
-    --tw-enter-translate-y: initial;
-  }
-
-  .animate-out {
-    animation-name: animateOut;
-    animation-duration: 350ms;
-    --tw-exit-opacity: initial;
-    --tw-exit-scale: initial;
-    --tw-exit-rotate: initial;
-    --tw-exit-translate-x: initial;
-    --tw-exit-translate-y: initial;
-  }
+@layer components {
+  .mw-container { @apply max-w-7xl mx-auto px-6 sm:px-8; }
+  .mw-button { @apply inline-flex items-center justify-center rounded-md border px-6 py-3 uppercase tracking-wider text-sm transition-colors; border-color: var(--mw-taupe); color: var(--mw-espresso); background: transparent; }
+  .mw-button:hover { background: rgba(215,199,189,0.15); }
+  .mw-outline { border-color: var(--mw-taupe); }
+  .mw-tagline { @apply text-sm italic text-neutral-600; }
+  .mw-section { @apply py-16 md:py-24; }
+  .mw-divider { height: 1px; background: linear-gradient(to right, transparent, var(--mw-taupe), transparent); opacity: 0.7; }
+  .mw-subtle { background-color: var(--mw-champagne); }
+  .mw-card { @apply rounded-md overflow-hidden border bg-white; border-color: var(--mw-taupe); }
 }
